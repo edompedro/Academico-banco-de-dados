@@ -76,7 +76,7 @@
             $lista = array();
             if($res) {
                 while($linha = $stm->fetch(PDO::FETCH_ASSOC)){
-                    $curso = new Curso($linha['nome'],$linha['area'],$linha['cargaHoraria'],$linha['dateFundacao']);
+                    $curso = new Curso($linha['nome'],$linha['area'],$linha['cargaHoraria'],$linha['dataFundacao']);
                     $curso->setCod(intval($linha['id']));
                     array_push($lista,$curso);
                 }
@@ -98,7 +98,7 @@
             $stm->bindValue(4,$curso->getDate());
             $stm->bindValue(5,$curso->getCod());
             $res = $stm->execute();
-            if(res) {
+            if($res) {
                 return true;
             }else{
                 return false;

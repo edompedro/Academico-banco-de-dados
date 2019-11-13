@@ -6,7 +6,7 @@
 
     $cod = isset($_POST['cod']);
 
-    $curso = new Curso($_POST['nome'],$_POST['area'],$_POST['carga'],$_POST['date']);
+    $curso = new Curso($_POST['nome'],$_POST['area'],$_POST['carga'],$_POST['date']);   //cria um novo curso com os dados passados
 
     $cursodao = new CursoDAO();
 

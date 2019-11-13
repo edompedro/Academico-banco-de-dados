@@ -2,12 +2,13 @@
     require_once('header.php');
     require_once('CursoDAO.php');    
     require_once('Curso.php');
-    $cod = isset($_GET['cod']); //cod que ta na tabela do listar e faz referencia aum curso
+    $cod = isset($_GET['cod']); //cod que ta na tabela do listar e faz referencia a um curso, pra poder verificar se tem codigo e se 
+                                //é um update ou insert
 
     if($cod){
     $cod = $_GET['cod'];  //vereifica se tem codigo e então cria dao e busca um curso para add em $curso
-    $cursodao = new classDAO();
-    $curso = $cursodao->buscar(intval($cod));
+    $cursodao = new CursoDAO();
+    $curso = $cursodao->busca(intval($cod));
     }
 ?>
 <h2>Cadastro de cursos</h2>
@@ -17,20 +18,20 @@
     <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" class="form-control form-control-sm" id="nome" name="nome" 
-        value="<?php if($cod) echo $curso->getNome();?>" >
+        value="<?php if($cod) echo $curso->getNome();?>" >  <!--verifica se tem ou nao o codigo pra ja preencher ou não o campo-->
     </div>
     <div class="form-group">
-        <label for="email">area do curso</label>
+        <label>area do curso</label>
         <input  class="form-control form-control-sm" id="area" name="area" placeholder="kitesurf" 
         value="<?php if($cod) echo $curso->getArea();?>">
     </div>
     <div class="form-group">
-        <label for="cpf">Carga horaria</label>
+        <label>Carga horaria</label>
         <input type="text" class="form-control form-control-sm" id="carga" name="carga" placeholder="80" 
         value="<?php if($cod) echo $curso->getCarga();?>">
     </div>
     <div class="form-group">
-        <label for="cpf">data de fundação</label>
+        <label>data de fundação</label>
         <input type="text" class="form-control form-control-sm" id="date" name="date" placeholder="'10-11-2017'" 
         value="<?php if($cod) echo $curso->getDate();?>">
     </div>

@@ -2,6 +2,7 @@
 
     require_once('Curso.php');
     require_once('CursoDAO.php');
+    require_once('header.php');
 
     $curso = new Curso('pipinha','voar',80,'10-11-2017');
     $curso1 = new Curso('pipinha médio','voar alto',100,'10-11-2017');

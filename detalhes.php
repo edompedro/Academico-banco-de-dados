@@ -2,7 +2,7 @@
 require_once('header.php');
 require_once('CursoDAO.php');    
 require_once('Curso.php');
-$cod = isset($_GET['cod']);
+$cod = isset($_GET['cod']); //get cod do listar
 
 if($cod){
   $cod = $_GET['cod'];
